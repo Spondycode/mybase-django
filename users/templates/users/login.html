@@ -3,13 +3,22 @@
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
-<h1>Log Yourself in Here</h1>
-<p>Put the login form on this page.</p>
-<br/></br>
-<h4>What? Not registered Yet?</h4>
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4"> Log Yourself In...</legend>
+          {{ form.as_p}}
+        </fieldset>
+        <div>
+          <button class="btn btn-outline-info mb-4" type="submit">Sign In </button>
+        </div>  
+      </form>  
       <div class="border-top pt-3">
         <small class="text-muted">
-           <a class="btn btn-outline-info ml-2" href="{% url 'register'  %}">Register</a>
+          Need an account Dude? <a class="ml-2 mb-4" href="{% url 'register'  %}">Register</a>
         </small>
       </div>
+    </div>
+
 {% endblock %}
