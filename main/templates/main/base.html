@@ -12,16 +12,16 @@
 
 
     {% if title %}
-        <title>Django - {{ title }}</title>
+        <title>Best Plots - {{ title }}</title>
     {% else %}
-        <title>Django </title>
+        <title>Your Camping </title>
     {% endif %}
 </head>
 <body>
     {% include 'main/navbar.html' %}
 
 
-    <main role="main" class="container">
+    <main role="main" class="container bg-body-secondary">
       <div class="row">
         <div class="col-md-8">
           {% if messages %}

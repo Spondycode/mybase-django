@@ -3,12 +3,22 @@
 {% block content %}
     
 <div class=container>
-  
-  <h1>Your Profile {{ user }}</h1>
+  <h1>Your Profile</h1>
 
-    <p>Information here! </p>
-    <p>Maybe we can put a picture in her later and links to update the profile and password</p>
-
+        <h2 class="account-heading">User Name: {{ user }}</h2>
+  <div class="card">
+    <div class="content-section bg-body-tertiary">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="card-body">
+        <h4>Email: </h4>
+        <p class="card-text">{{ user.email }} </p>
+        <h4>Nationality:</h4>
+        <p class="card-text">{{ user.profile.nationality }} </p>
+        <h4> Primary Cammping Style: </h4>
+        <p class="card-text">{{ user.profile.camp_type }} </p>
+      </div><a href="#" class="btn btn-outline-info mb-3">Go somewhere</a>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
