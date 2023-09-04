@@ -2,23 +2,19 @@
 
 {% block content %}
     
-<div class=container>
-  <h1>Your Profile</h1>
+<div class="container ">
+  <h1 class="text-center">Your Profile</h1>
 
   <div class="card bg-light text-dark">
-        <h2 class="account-heading ml-4 mt-2">User Name: {{ user }}</h2>
+        <h2 class="account-heading text-center mt-2">User Name: {{ user }}</h2>
     <div class="content-section ">
-      <img class="rounded-circle account-img ml-4" src="{{ user.profile.image.url }}">
+      <img class="rounded-circle account-img ml-4 mx-auto d-block" style="width:200px;height:200px;" src="{{ user.profile.image.url }}">
       <div class="card-body">
-        <h4>Email: </h4>
-        <p class="card-text">{{ user.email }} </p>
-        <h4>Nationality:</h4>
-        <p class="card-text">{{ user.profile.nationality }} </p>
-        <h4> Primary Cammping Style: </h4>
-        <p class="card-text">{{ user.profile.camp_type }} </p>
+        <h6 class="text-center">Email: {{ user.email }} </h6>
+        <p class="card-text text-center"></p>
       </div>
-        <div class="d-grid col-6 mx-auto">
-          <a href="#" class="btn btn-outline-info mb-3">Go somewhere</a>
+        <div class="text-center">
+          <a href="{% url 'update' %}" class="btn btn-outline-info mb-3">Update Profile</a>
         </div>
     </div>
   </div>

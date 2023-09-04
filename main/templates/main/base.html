@@ -21,9 +21,9 @@
     {% include 'main/navbar.html' %}
 
 
-    <main role="main" class="container">
+    <main role="main" >
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
           {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{{ message.tags }}">
@@ -33,7 +33,7 @@
           {% endif %}
           {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="content-section">
             <h3>Our Sidebar</h3>
             <p class='text-muted'>You can put any information here you'd like.
@@ -41,16 +41,16 @@
                 <li class="list-group-item list-group-item-light">Latest Posts</li>
                 <li class="list-group-item list-group-item-light">Announcements</li>
                 <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                <li class="list-group-item list-group-item-light">New on the scene but totally keen to give you the best experience - Either creating competitions to raise money or for you to win one of these competitions.</li>
               </ul>
             </p>
           </div>
         </div>
+    {% include 'main/footer.html' %}
       </div>
     </main>
 
 
-    {% include 'main/footer.html' %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

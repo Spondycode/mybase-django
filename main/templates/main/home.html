@@ -3,10 +3,25 @@
 {% block title %}Home Page{% endblock %}
 
 {% block content %}
-<h1>Home Page</h1>
 
-<h2>Hello {{ user }} - you are logged in</h2>
+<div class="container-fluid ">
+<h2>Hello {{ user }} - Enter a Competition and Win !</h2>
 
-<p>Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.</p>
+<ol>
+<li><p><strong>Transparency:</strong> Continue to emphasize your independence and commitment to unbiased reviews. Make it crystal clear to your audience that you have no investors or sponsors, ensuring trust remains at the core of your content.</p></li>
+<li><p><strong>Quality Content:</strong> Focus on producing top-notch content, including comprehensive written reviews, captivating photos, and informative videos. Visual content can effectively complement your textual insights.</p></li>
+<li><p><strong>Consistency:</strong> Maintain a regular posting schedule to keep your followers engaged. Consistency builds trust and keeps your audience coming back for more.</p></li>
+<li><p><strong>Expertise:</strong> Leverage your extensive background in the mountain biking world to provide not only product reviews but also valuable content like how-to guides, maintenance tips, and industry insights.</p></li>
+<li><p><strong>Engagement:</strong> Foster a community by actively interacting with your audience through comments, social media, and live Q&amp;A sessions. Respond promptly to inquiries and feedback.</p></li>
+<li><p><strong>Collaborations:</strong> Explore collaborations with other MTB experts or enthusiasts. Collaborative efforts can introduce your content to new audiences and offer diverse perspectives.</p></li>
+</ol>
 
+<p>By staying true to your mission and consistently delivering valuable content, you can carve a niche for yourself in the MTB community. Your project not only provides authentic reviews but also serves as a valuable resource for fellow riders. Best of luck with your independent MTB review venture!</p>
+    </div>
+    <div>
+    {% include 'main/howtoplay.html' %}
+
+    </div>
 {% endblock %}
+
+

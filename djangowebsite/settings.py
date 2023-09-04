@@ -22,6 +22,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
+    'competitions.apps.CompetitionsConfig',
     # 'crispy_forms',
     # 'crispy_bootstrap5',
     'django.contrib.admin',
