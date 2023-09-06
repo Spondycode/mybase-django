@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from competitions import views as comp_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,9 @@ urlpatterns = [
     path('', include('main.urls')),
     path('profile/', user_views.profile, name='profile'),
     path('update/', user_views.update, name='update'),
+    path('comp_detail/', comp_views.comp_detail, name='comp-detail'),
+    path('currentcomps/', comp_views.currentcomps, name='current-comps'),
+    path('related/', comp_views.related, name='related'),  
 ]
 
 
