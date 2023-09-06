@@ -14,4 +14,4 @@ def related(request):
 
 
 def winners(request):
-    return render(request, "winners")
+    return render(request, "winners.html")

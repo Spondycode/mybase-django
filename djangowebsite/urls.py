@@ -27,11 +27,13 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('', include('main.urls')),
+    path('', include('competitions.urls')),
     path('profile/', user_views.profile, name='profile'),
     path('update/', user_views.update, name='update'),
     path('comp_detail/', comp_views.comp_detail, name='comp-detail'),
     path('currentcomps/', comp_views.currentcomps, name='current-comps'),
-    path('related/', comp_views.related, name='related'),  
+    path('related/', comp_views.related, name='related'),
+    path('winners/', comp_views.winners, name='winners'),
 ]
 
 

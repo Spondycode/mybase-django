@@ -8,7 +8,7 @@ import datetime
 class Delivery(models.Model):
     name = models.CharField(max_length=120)
 
-    def __str(self):
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -29,6 +29,7 @@ class Product(models.Model):
     end_date = models.DateField()
     tickets_bought = models.IntegerField()
     charity = models.CharField(max_length=60)
+    char_percent = models.IntegerField()
 
     def __str__(self):
         return str(self.title)
@@ -41,6 +42,14 @@ class TicketOrder(models.Model):
     correct_answer = models.BooleanField(default=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __int__(self):
+        return str(self.id)
+ 
+
+class CharPercent(models.Model):
+    amount = models.IntegerField(default=0)
+
     def __str__(self):
-        return self.id
-    
+        return str(self.amount)
+
+
