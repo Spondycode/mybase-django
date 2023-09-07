@@ -3,6 +3,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
+import uuid
 
 
 class Delivery(models.Model):
@@ -15,9 +16,15 @@ class Delivery(models.Model):
         verbose_name_plural = 'deliveries'
 
 
+class CharPercent(models.Model):
+    amount = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.amount)
+
 
 class Product(models.Model):
-    owner = models.ManyToManyField(User)
+    owner = models.TextField(default="OWNER")
     title = models.CharField(max_length=100)
     description = models.TextField()
     delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE)
@@ -27,29 +34,24 @@ class Product(models.Model):
     quantity_winners = models.IntegerField(default=1)
     alternative_prize = models.CharField(max_length=30, null=True, blank=True)
     end_date = models.DateField()
-    tickets_bought = models.IntegerField()
-    charity = models.CharField(max_length=60)
-    char_percent = models.IntegerField()
+    charity = models.CharField(max_length=60, null=True, blank=True)
+    char_percent = models.ForeignKey(CharPercent, on_delete=models.CASCADE, null=True, blank=True)
+    image = models.ImageField(default='default.jpg', upload_to='product_pics')
 
     def __str__(self):
         return str(self.title)
 
 
 class TicketOrder(models.Model):
+    title = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     date = models.DateField(default=datetime.datetime.today)
     correct_answer = models.BooleanField(default=True)
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __int__(self):
-        return str(self.id)
- 
-
-class CharPercent(models.Model):
-    amount = models.IntegerField(default=0)
-
     def __str__(self):
-        return str(self.amount)
+        return str(self.title)
+
 
 
