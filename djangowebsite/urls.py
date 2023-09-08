@@ -34,7 +34,7 @@ urlpatterns = [
     path('currentcomps/', comp_views.currentcomps, name='current-comps'),
     path('related/', comp_views.related, name='related'),
     path('winners/', comp_views.winners, name='winners'),
-]
+] # + static(settings.STATIC_URL, document)
 
 
 if settings.DEBUG:
