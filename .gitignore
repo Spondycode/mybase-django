@@ -1,4 +1,4 @@
 db.sqlite3
 .DS_Store
 mybase-django/.git
-mybase-django/.env
+/djangowebsite/.env
