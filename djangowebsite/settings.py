@@ -9,7 +9,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-whm*ep0oq5fk4wyw-$4itbziwn$^l!_z*4-=8z(sz375g6r&5v'
+
+# this going somewhere on the top of the file.
+import environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False))
+# reading .env file
+environ.Env.read_env()
+...
+#  We are ready to change the DEBUG, SECRET_KEY and DATABASES lines to read their values from the environment.
+DEBUG = env('DEBUG')
+...
+SECRET_KEY = env('SECRET_KEY')
+...
+DATABASES = {
+    'default': env.db(),
+}
+
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
