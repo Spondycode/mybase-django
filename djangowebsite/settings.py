@@ -1,7 +1,9 @@
 from pathlib import Path
 import os
+import environ
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+#Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -11,7 +13,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # this going somewhere on the top of the file.
-import environ
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False))
@@ -23,18 +24,16 @@ DEBUG = env('DEBUG')
 ...
 SECRET_KEY = env('SECRET_KEY')
 ...
-DATABASES = {
-    'default': env.db(),
-}
-
-
+# DATABASES = {
+#     'default': env.db(),
+# }
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = ['172.232.61.137', '127.0.0.1']
 
 # Application definition
 
