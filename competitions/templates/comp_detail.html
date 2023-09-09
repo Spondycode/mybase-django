@@ -1,5 +1,11 @@
 {% extends 'main/base.html' %}
 
+    {% load static %}
+
+{% block scripts %}
+    <script src={% static 'main.js'  %} defer></script>
+{% endblock scripts %}
+
 {% block content %}
     
 <div class=container>
@@ -15,35 +21,44 @@
                   <a class="btn btn-primary btn-block" href="#">Buy Tickets</a>
               </div>    
               <h6>End Date:</h6>
-                <p class="card-text ml-5">{{ product.end_date }}</p>
-<h2 class="text-center">There will be a countdown timer in here</h2>
+
+
+
+      <div class="text-center mb-2" id="event-box">
+        <h3 class="p-3 text-light bg-secondary border rounded-6"> {{ product.end_date|date:"M d, Y H:s" }}</h3>
+        <div id="countdown-box" class="text-center mt-3 h1"></div>
+          <div class="spinner-border" role="status"></div>
+      </div>
+
+
+
               <h6>Competition Owner:</h6>
                 <p class="card-text ml-5">{{ product.owner }}</p>
               <h6>Description:</h6>
                 <p class="card-text ml-5">{{ product.description }}</p>
       <div class="row">
-        <div class="col-sm-3 p-3 bg-primary text-white">      
+        <div class="col-sm-3 p-3 bg-secondary text-white">      
                 <h6 class="text-center">Delivery Options:</h6>
                 <p class="card-text text-center">{{ product.delivery }}</p>
         </div>
-        <div class="col-sm-3 p-3 bg-dark text-white">
+        <div class="col-sm-3 p-3 bg-info text-white">
                 <h6 class="text-center">Minimum Tickets:</h6>
                 <p class="card-text text-center">{{ product.min_ticket }}</p>
         </div>
-        <div class="col-sm-3 p-3 bg-primary text-white">
+        <div class="col-sm-3 p-3 bg-secondary text-white">
                 <h6 class="text-center">Max Number of Tickets:</h6>
                 <p class="card-text text-center ">{{ product.max_ticket }}</p>
           </div>
-        <div class="col-sm-3 p-3 bg-dark text-white">
+        <div class="col-sm-3 p-3 bg-info text-white">
                 <h6 class="text-center">How Many Winners:</h6>
                 <p class="card-text text-center">{{ product.quantity_winners }}</p>
         </div>
       </div>
           <br>
-            <div class="bg-info mb-4 mt-3</h3>">
+            <div class="bg-light mb-4 pt-7</h3>">
               
             {% if product.char_percent %}
-              <h4 class="text-center mt-3 mb-2">Charity Cause to Benefit</h4>
+              <h4 class="text-center mt-6 mb-2">Charity Cause to Benefit</h4>
               <p class="text-center mb-2">{{ product.charity }} - {{ product.char_percent }}%</p>
             {% endif %}
         </div>

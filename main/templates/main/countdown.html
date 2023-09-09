@@ -1,0 +1,11 @@
+{% load static %}
+
+{% block scripts %}
+<script src={% static 'main.js' %} defer></script>
+{% endblock scripts %}
+
+{% block content%}
+  <div class="text-center mb-2" id="event-box">
+    {{ product.title }} Countdown
+  </div>
+{% endblock%}

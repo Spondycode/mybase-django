@@ -33,8 +33,8 @@ class Product(models.Model):
     max_ticket = models.IntegerField()
     quantity_winners = models.IntegerField(default=1)
     alternative_prize = models.CharField(max_length=30, null=True, blank=True)
-    end_date = models.DateField()
-    charity = models.CharField(max_length=60, null=True, blank=True)
+    end_date = models.DateTimeField()
+    charity = models.TextField(null=True, blank=True)
     char_percent = models.ForeignKey(CharPercent, on_delete=models.CASCADE, null=True, blank=True)
     image = models.ImageField(default='default.jpg', upload_to='product_pics')
 

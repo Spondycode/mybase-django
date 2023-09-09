@@ -5,20 +5,20 @@
 <div class="container">
   
   <h1>Current Competitions</h1>
+      <br/>
 {% for product in product_list %}
-    <div class="card mb-5">
+    <div class="card p-4">
        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
        <h3 class="card-header mb-3">{{ product.title }}</h3>
         <div class="container">
               <h6>End Date:</h6>
                 <p class="card-text ml-5">{{ product.end_date }}</p>
-<h2 class="text-center">There will be a countdown timer in here</h2>
               <h6>Competition Owner:</h6>
                 <p class="card-text ml-5">{{ product.owner }}</p>
               <h6>Description:</h6>
                 <p class="card-text ml-5">{{ product.description }}</p>
           <br>
-            <div class="bg-info mb-4 mt-3</h3>">
+            <div class="container bg-warning mb-4 mt-3</h3>">
               {% if product.char_percent %}
               <h4 class="text-center mt-3 mb-2">Charity Cause to Benefit</h4>
               <p class="text-center mb-2">{{ product.charity }} - {{ product.char_percent }}%</p>
@@ -27,10 +27,10 @@
     
         </div>
 
-            <a class="btn btn-outline-primary btn-block" href="{% url 'comp-detail' product.id  %}">Competition Details</a>
-
+            <a class="btn btn-primary btn-block p-4" href="{% url 'comp-detail' product.id  %}">Competition Details - Find Out More About the Prize</a>
     </div>
 {% endfor %}
+
 
 </div>
 
