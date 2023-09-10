@@ -18,10 +18,13 @@
               <h6>Description:</h6>
                 <p class="card-text ml-5">{{ product.description }}</p>
           <br>
-            <div class="container bg-warning mb-4 mt-3</h3>">
+            <div class="container-fluid mb-4 mt-3</h3>">
               {% if product.char_percent %}
-              <h4 class="text-center mt-3 mb-2">Charity Cause to Benefit</h4>
-              <p class="text-center mb-2">{{ product.charity }} - {{ product.char_percent }}%</p>
+              <div class="p-3 text-center" style="background-color: #FFA663;>
+                <h2 class="text-center mt-3 mb-2">Charity Cause to Benefit</h2>
+              </div>
+              <p class="text-center mt-5 mb-2">{{ product.charity }} </p>
+              <h3 class="text-center">{{ product.char_percent }}% of proceeds to Charity</h3>
               {% endif %}
             </div>
     
