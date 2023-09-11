@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from .models import Product
+from .forms import CompForm
 
 # this one also needs a reference to the pk
 def comp_detail(request, product_id):
@@ -18,3 +19,18 @@ def related(request):
 
 def winners(request):
     return render(request, "winners.html")
+
+
+def createcomp(request):
+    submitted = False
+    if request.method == "POST":
+        form = CompForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/createcomp?submitted=True')
+    else:
+        form = CompForm
+        if 'submitted' in request.GET:
+            submitted = True
+            
+    return render(request, "createcomp.html", {'form':form, 'submitted':submitted} )

@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    
+<div class=container>
+  
+  <h1> Create a Competition </h1>
+
+      {% if submitted %}
+      Your Competition  Was Submitted Successfully
+        
+        {% else %}
+
+          <form action="" method=POST>
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit" class="btn btn-info">
+          </form>
+      {% endif %}
+   
+</div>
+
+{% endblock %}
+
