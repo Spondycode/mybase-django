@@ -7,6 +7,7 @@ urlpatterns = [
     path('related/', views.related, name='related'),
     path('winners/', views.winners, name='winners'),
     path('createcomp/<user_id>', views.createcomp, name='create-comp'),
+    path('my_competitions', views.my_competitions, name='my-competitions')
 ]
 
 

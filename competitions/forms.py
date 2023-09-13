@@ -1,12 +1,18 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Product
+import datetime
+
+
+class DateInput(forms.DateInput):
+    input_type = 'datetime'
 
 
 class CompForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('owner', 'title', 'description', 'delivery', 'collection', 'min_ticket', 'max_ticket', 'alternative_prize', 'end_date', 'charity', 'char_percent', 'image',
+                  
                   )
         labels = {
             'owner': '',
@@ -24,7 +30,7 @@ class CompForm(forms.ModelForm):
             'image': '',
         }
         widgets = {
-            'owner': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Owner'}),
+            'owner': forms.Select(attrs={'class':'form-select', 'placeholder':'Owner'}),
             'title': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Title'}),
             'description': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
             'delivery': forms.Select(attrs={'class':'form-select', 'placeholder':'Delivery Options'}),

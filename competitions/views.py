@@ -14,7 +14,9 @@ def currentcomps(request):
 
 
 def related(request):
-    return render(request, "related.html")
+    product_list = Product.objects.all()
+    return render(request, "related.html", {"product_list": product_list})
+    return render(request, "")
 
 
 def winners(request):
@@ -34,3 +36,14 @@ def createcomp(request):
             submitted = True
             
     return render(request, "createcomp.html", {'form':form, 'submitted':submitted} )
+
+
+def my_competitions(request):
+    if request.user.is_authenticated:
+        me = request.user.id
+        products = Product.objects.filter(owner=me)
+        return render(request, "my_competitions.html", {"products":products})
+
+    else:
+        messages.success(request, ("Login to see your competitions"))
+        return redirect('current-comps')

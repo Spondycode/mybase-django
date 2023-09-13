@@ -7,6 +7,9 @@
   <h1>Current Competitions</h1>
       <br/>
 {% for product in product_list %}
+{% if product.approved %}
+
+
     <div class="card p-4">
        <img src="{{ product.image.url }}" class="card-img-top" alt="...">
        <h3 class="card-header mb-3">{{ product.title }}</h3>
@@ -32,6 +35,8 @@
 
             <a class="btn btn-primary btn-block p-4" href="{% url 'comp-detail' product.id  %}">Competition Details - Find Out More About the Prize</a>
     </div>
+
+{% endif %}
 {% endfor %}
 
 

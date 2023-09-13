@@ -24,7 +24,8 @@ class CharPercent(models.Model):
 
 
 class Product(models.Model):
-    owner = models.TextField(default="OWNER")
+    # owner = models.TextField(default="OWNER")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
     delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE)
@@ -34,9 +35,11 @@ class Product(models.Model):
     quantity_winners = models.IntegerField(default=1)
     alternative_prize = models.CharField(max_length=30, null=True, blank=True)
     end_date = models.DateTimeField()
-    charity = models.TextField(null=True, blank=True)
+    charity = models.CharField(null=True, blank=True, max_length=120)
+    charity_details = models.TextField(null=True, blank=True)
     char_percent = models.ForeignKey(CharPercent, on_delete=models.CASCADE, null=True, blank=True)
     image = models.ImageField(default='default.jpg', upload_to='product_pics')
+    approved = models.BooleanField('Approved', default=False)
 
     def __str__(self):
         return str(self.title)

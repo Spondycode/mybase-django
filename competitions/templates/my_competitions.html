@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    
+<div class=container>
+  
+  <h2 class="mb-4"> My {{ user }} Competitions </h2>
+
+
+
+  <div class="container">
+    
+    <table class="table">
+        <tr>
+          <th>Competiton Product</th>
+          <th>End Date</th>
+          <th>Approved</th>
+          <th>Get Details</th>
+        </tr>
+      {% for product in products %}
+      <tbody>
+        <tr>
+        <td>{{ product }}</td>
+        <td>{{ product.end_date }}</td>
+        <td>{{ product.approved }}</td>
+          <td><a class="btn btn-primary btn-sm p-4" href="{% url 'comp-detail' product.id  %}">Competition Details</a></td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}
+
+

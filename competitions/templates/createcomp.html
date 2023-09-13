@@ -2,24 +2,26 @@
 
 {% block content %}
     
-<div class=container>
-  
+<div class=container-fluid>
+
   <h1> Create a Competition </h1>
+    <div class="card">
+      <div class="card-body">
+          {% if submitted %}
+          Your Competition  Was Submitted Successfully. Please wait for approval...
+            
+            {% else %}
 
-      {% if submitted %}
-      Your Competition  Was Submitted Successfully
-        
-        {% else %}
+              <form action="" method=POST>
+                {% csrf_token %}
 
-          <form action="" method=POST>
-            {% csrf_token %}
+                {{ form.as_p }}
 
-            {{ form.as_p }}
-
-            <input type="submit" value="Submit" class="btn btn-info">
-          </form>
-      {% endif %}
-   
+                <input type="submit" value="Submit" class="btn btn-info">
+              </form>
+          {% endif %}
+    </div>
+  </div>
 </div>
 
 {% endblock %}

@@ -40,3 +40,9 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# Configuration Admin titles
+admin.site.site_header = "Raffle Site Admin"
+admin.site.title = "Raffle Admin"
+admin.site.index_title = "Admin Raffle It"
