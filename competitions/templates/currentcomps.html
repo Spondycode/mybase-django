@@ -1,47 +1,43 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 {% block content %}
     
 <div class="container">
   
   <h1>Current Competitions</h1>
       <br/>
-{% for product in product_list %}
-{% if product.approved %}
+
+    <div class="container">
+        <div class="row">
+            {% for product in product_list %}
+                <div class="col-md-3">
+                  <div class="card-group">
+                    <div class="card border-primary mb-1">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">Description - {{ product.description }}</p>
+                            <p class="card-text">Competition Ends - {{ product.end_date }}</p>
+                            <p class="card-text">Owner of Competition - {{ product.owner }}</p>
 
 
-    <div class="card p-4">
-       <img src="{{ product.image.url }}" class="card-img-top" alt="...">
-       <h3 class="card-header mb-3">{{ product.title }}</h3>
-        <div class="container">
-              <h6>End Date:</h6>
-                <p class="card-text ml-5">{{ product.end_date }}</p>
-              <h6>Competition Owner:</h6>
-                <p class="card-text ml-5">{{ product.owner }}</p>
-              <h6>Description:</h6>
-                <p class="card-text ml-5">{{ product.description }}</p>
-          <br>
-            <div class="container-fluid mb-4 mt-3</h3>">
-              {% if product.char_percent %}
-              <div class="p-3 text-center" style="background-color: #FFA663;>
-                <h2 class="text-center mt-3 mb-2">Charity Cause to Benefit</h2>
-              </div>
-              <p class="text-center mt-5 mb-2">{{ product.charity }} </p>
-              <h3 class="text-center">{{ product.char_percent }}% of proceeds to Charity</h3>
-              {% endif %}
-            </div>
-    
+                            {% if product.char_percent %}
+                            <div class="p-3 text-center" style="background-color: #FFA663;>
+                              <h1 class="text-center mt-3 mb-2">Charity Cause to Benefit</h1>
+                            </div>
+                            <p class="text-center mt-5 mb-2">{{ product.charity }} </p>
+                            <h3 class="text-center">{{ product.char_percent }}% of proceeds to Charity</h3>
+                            {% endif %}
+                            <a class="btn btn-primary btn-block p-4" href="{% url 'comp-detail' product.id  %}">Competition Details </a>
+                        </div>
+                    </div>
+                  </div>  
+                </div>
+            {% endfor %}
         </div>
-
-            <a class="btn btn-primary btn-block p-4" href="{% url 'comp-detail' product.id  %}">Competition Details - Find Out More About the Prize</a>
     </div>
 
-{% endif %}
-{% endfor %}
-
-
 </div>
-
 {% endblock %}
 
 

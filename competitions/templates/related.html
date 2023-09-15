@@ -1,31 +1,42 @@
-{% extends 'main/base.html' %}
 
-{% block content %}
+{% block related %}
     
-<div class=container>
-    <div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="container">
+  
+  <h1>Current Competitions ???? Huh?</h1>
+      <br/>
+
+      <h2>Why is the stuff not showing on the page?</h2>
+
+        <div class="row">
+            {% for product in product_list %}
+                <div class="col-md-4">
+      <p>Weird stuff happening with the code</p>
+                  <div class="card-group">
+                    <div class="card border-primary mb-1">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">Description - {{ product.description }}</p>
+                            <p class="card-text">Competition Ends - {{ product.end_date }}</p>
+                            <p class="card-text">Owner of Competition - {{ product.owner }}</p>
+
+
+                            {% if product.char_percent %}
+                            <div class="p-3 text-center" style="background-color: #FFA663;>
+                              <h1 class="text-center mt-3 mb-2">Charity Cause to Benefit</h1>
+                            </div>
+                            <p class="text-center mt-5 mb-2">{{ product.charity }} </p>
+                            <h3 class="text-center">{{ product.char_percent }}% of proceeds to Charity</h3>
+                            {% endif %}
+                            <a class="btn btn-primary btn-block p-4" href="{% url 'comp-detail' product.id  %}">Competition Details </a>
+                        </div>
+                    </div>
+                  </div>  
+                </div>
+            {% endfor %}
         </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-   
+
 </div>
-
-{% endblock %}
-
+{% endblock related %}
 

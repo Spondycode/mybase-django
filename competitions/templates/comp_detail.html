@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
-    {% load static %}
+
 
 {% block scripts %}
     <script src={% static 'main.js'  %} defer></script>
@@ -14,27 +15,26 @@
 
 
     <div class="card mb-3">
-       <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+       <img src="{{ product.image.url }}" class="card-img-top" alt="..." >
        <h3 class="card-header mb-3">{{ product.title }}</h3>
         <div class="container">
               <div class="mb-2">
                   <a class="btn btn-primary btn-block" href="#">Buy Tickets</a>
               </div>    
-              <h6>End Date:</h6>
+              <h3>End Date:</h3>
 
 
 
       <div class="text-center mb-2" id="event-box">
         <h3 class="p-3 text-light bg-secondary border rounded-6"> {{ product.end_date|date:"M d, Y H:s" }}</h3>
         <div id="countdown-box" class="text-center mt-3 h1"></div>
-          <!-- <div class="spinner-border" role="status"></div> -->
       </div>
 
 
 
-              <h6>Competition Owner:</h6>
+              <h4>Competition Owner:</h4>
                 <p class="card-text ml-5">{{ product.owner }}</p>
-              <h6>Description:</h6>
+              <h4>Description:</h4>
                 <p class="card-text ml-5">{{ product.description }}</p>
       <div class="row">
         <div class="col-sm-3 p-3 bg-secondary text-white">      
@@ -70,6 +70,9 @@
               </div>    
 
     </div>
+
+
+
    
 </div>
 

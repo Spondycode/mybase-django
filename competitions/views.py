@@ -10,13 +10,14 @@ def comp_detail(request, product_id):
 
 def currentcomps(request):
     product_list = Product.objects.all()
-    return render(request, "currentcomps.html", {"product_list": product_list})
+    context =  {"product_list": product_list}
+    return render(request, "currentcomps.html", context)
 
 
 def related(request):
     product_list = Product.objects.all()
-    return render(request, "related.html", {"product_list": product_list})
-    return render(request, "")
+    context = {"product_list": product_list}
+    return render(request, "related.html", context)
 
 
 def winners(request):

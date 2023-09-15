@@ -32,9 +32,9 @@ urlpatterns = [
     path('update/', user_views.update, name='update'),
     path('comp_detail/', comp_views.comp_detail, name='comp-detail'),
     path('currentcomps/', comp_views.currentcomps, name='current-comps'),
-    path('related/', comp_views.related, name='related'),
+    # path('related/', comp_views.related, name='related'),
     path('winners/', comp_views.winners, name='winners'),
-    path('createcomp', comp_views.createcomp, name='create-comp')
+    path('createcomp', comp_views.createcomp, name='create-comp'),
 ] # + static(settings.STATIC_URL, document)
 
 
