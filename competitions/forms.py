@@ -11,7 +11,18 @@ class DateInput(forms.DateInput):
 class CompForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ('owner', 'title', 'description', 'delivery', 'collection', 'min_ticket', 'max_ticket', 'alternative_prize', 'end_date', 'charity', 'char_percent', 'image',
+        fields = ('owner', 
+                  'title', 
+                  'description',
+                  'delivery', 
+                  'collection', 
+                  'min_ticket', 
+                  'max_ticket', 
+                  'alternative_prize', 
+                  'end_date',
+                  'charity', 
+                  'char_percent', 
+                  'image',
                   
                   )
         labels = {

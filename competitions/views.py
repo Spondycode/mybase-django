@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
-from .models import Product
+from .models import Product, TicketOrder
 from .forms import CompForm
 
 # this one also needs a reference to the pk
@@ -43,7 +43,21 @@ def my_competitions(request):
     if request.user.is_authenticated:
         me = request.user.id
         products = Product.objects.filter(owner=me)
-        return render(request, "my_competitions.html", {"products":products})
+        context = {"products":products}
+        return render(request, "my_competitions.html", context)
+
+    else:
+        messages.success(request, ("Login to see your competitions"))
+        return redirect('current-comps')
+
+
+
+def my_tickets(request):
+    if request.user.is_authenticated:
+        me = request.user.id
+        tickets = TicketOrder.objects.all #filter(customer=me)
+        context = {"tickets":tickets}
+        return render(request, "my_tickets.html", context)
 
     else:
         messages.success(request, ("Login to see your competitions"))

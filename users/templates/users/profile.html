@@ -12,12 +12,17 @@
       <div class="card-body">
         <h6 class="text-center">Email: {{ user.email }} </h6>
         <p class="card-text text-center"></p>
+        <h6 class="text-center">Creator: {{ user.profile.comp_creator }} </h6>
+        <p class="card-text text-center"></p>
       </div>
         <div class="text-center">
           <a href="{% url 'update' %}" class="btn btn-outline-info mb-3">Update Profile</a>
         </div>
         <div class="text-center">
           <a href="{% url 'my-competitions' %}" class="btn btn-outline-info mb-3">My Competitions</a>
+        </div>
+        <div class="text-center">
+          <a href="{% url 'my-tickets' %}" class="btn btn-outline-info mb-3">My Tickets</a>
         </div>
     </div>
   </div>
