@@ -1,0 +1,20 @@
+{% load static %}
+{% block content %}
+    
+<div class=container>
+  
+  <h3 class="text-center">Latest Competition </h3>
+
+       <img src="{{ latest.image.url }}" class="card-img-top" alt="..." >
+  <p>Title: {{ latest }}</p>
+  <p>{{ latest.description }}</p>
+  <p>{{ latest.end_date }}</p>
+      <div>
+          <a class="btn btn-primary btn-block" href="#">Buy Tickets</a>
+      </div>    
+  <hr> 
+</div>
+
+{% endblock %}
+
+

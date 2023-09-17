@@ -9,6 +9,7 @@ urlpatterns = [
     path('createcomp/<user_id>', views.createcomp, name='create-comp'),
     path('my_competitions', views.my_competitions, name='my-competitions'),
     path('my_tickets', views.my_tickets, name='my-tickets'),
+    path('latest', views.latest, name='latest'),
 ]
 
 
